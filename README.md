@@ -43,10 +43,7 @@ Ensure the accuracy of toll collection by validating GPS coordinates against the
 Assumption : In our GPS toll system simulation using Python, we operate under the assumption that real-time GPS data provides accurate location updates, where the endpoint signifies the vehicle's stationary position upon completion of the journey. Users specify both the starting and ending locations, ensuring consistency in the vehicle's route. Our system relies on the reliability of user inputs to facilitate seamless navigation and toll processing.
 
 
- The real time data collection is initiated through the code chunck <https://github.com/SreyaJoseph/Terabyte-Titans/blob/main/data_collection.py>
- Data storage is achieved through the following code chunk <https://github.com/SreyaJoseph/Terabyte-Titans/blob/main/data_collection.py>
- User management is being done by the code chunk <https://github.com/SreyaJoseph/Terabyte-Titans/blob/main/data_collection.py>
- Users can access their payment history and this is initiated through the code chunk <https://github.com/SreyaJoseph/Terabyte-Titans/blob/main/data_collection.py>
+ The real time data collection,Data storage,User management and Toll Payment Status is initiated through the code chunck <https://github.com/SreyaJoseph/Terabyte-Titans/blob/main/app.py>
  
 ## Results and Findings
 
