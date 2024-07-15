@@ -21,7 +21,7 @@ This project simulates a GPS-based toll collection system for vehicles. The syst
 - `PYTHON`
 
 ## Implementation
-
+ As a first step in the implementation, the real time data collection is initiated through the code chunck <https://github.com/SreyaJoseph/Terabyte-Titans/blob/main/data_collection.py>
 
 ## Results and Findings
 
