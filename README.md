@@ -50,12 +50,17 @@ Assumption : In our GPS toll system simulation using Python, we operate under th
  
 ## Results and Findings
 
+Our GPS Toll System Simulation App is a comprehensive solution developed to simulate toll collection using GPS technology. The application leverages the power of Python for backend processing, ensuring efficient and accurate toll calculations based on real-time GPS data.
+
+Front End Development:The front end of our GPS Toll System Simulation App is designed with a focus on simplicity and user experience. HTML and CSS were utilized to create a responsive and visually appealing interface.
+
+Back End Development:The backend is powered by Python, handling the core functionalities such as GPS data processing, toll calculations, and data management.Leaflet provides continuous coordinates and generates maps. Python robust libraries and frameworks ensure the app performs efficiently and accurately under various conditions.
 
 ## Team Terabyte Titans
 
-- Sreya Anna Joseph <https://gitgub.com/sreya>
-- Sethunath A
-- Marianna Martin
+- Sreya Anna Joseph <https://github.com/SreyaJoseph>
+- Sethunath A <https://github.com/sethunath2003>
+- Marianna Martin <https://github.com/Marianna-Martin>
 - Rizia Sara Prabin
 
 
