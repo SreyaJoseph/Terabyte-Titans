@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Routing Example</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <style>
+        #map {
+            height: 60vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet Routing Machine JavaScript -->
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <!-- jQuery (for AJAX requests) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([ {{ start_point[0] }}, {{ start_point[1] }} ], 13);
+        // Add a tile layer to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Set the starting and ending points from Flask
+        var startPoint = L.latLng({{ start_point[0] }}, {{ start_point[1] }});
+        var endPoint = L.latLng({{ end_point[0] }}, {{ end_point[1] }});
+
+        // Add routing control to the map
+        var control = L.Routing.control({
+            waypoints: [startPoint, endPoint],
+            routeWhileDragging: true,
+            lineOptions: { styles: [{ color: 'blue', opacity: 0.8, weight: 6 }] }
+
+        }).addTo(map);
+
+        // Function to convert an array of LatLng objects to a CSV string
+        function convertToCSV(points) {
+            let csvContent = "data:text/csv;charset=utf-8,latitude,longitude\n";
+            points.forEach(point => {
+                csvContent += `${point.lat},${point.lng}\n`;
+            });
+            return csvContent;
+        }
+
+        // Add an event listener to get the route coordinates when a route is found
+        control.on('routesfound', function(e) {
+            var routes = e.routes;
+            var summary = routes[0].summary;
+            var coordinates = routes[0].coordinates;
+
+            console.log('Coordinates:', coordinates);
+
+            // Convert coordinates to CSV format
+            let csvContent = convertToCSV(coordinates);
+            
+            // Send coordinates to the server via AJAX POST request
+            $.ajax({
+                type: "POST",
+                url: "/save_coordinates_route2",
+                contentType: "application/json",
+                data: JSON.stringify({ coordinates: coordinates,summary: summary }),  // Sending route coordinates as JSON
+                success: function(response) {
+                    console.log('Server response:', response);
+                    // Create a download link and click it to download the CSV file
+                    var encodedUri = encodeURI(csvContent);
+                    var link = document.createElement("a");
+                    link.setAttribute("href", encodedUri);
+                    link.setAttribute("download", "route_coordinates.csv");
+                    document.body.appendChild(link); // Required for FF
+                    //link.click(); // This will download the data file named "route_coordinates.csv"
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    </script>
+    <p>
+        <li><a href="/page3">See The Toll Zone You will be travelling through</a></li>
+    </p>
+</body>
+</html>

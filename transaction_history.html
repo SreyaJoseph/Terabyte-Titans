@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Transaction History</title>
+        <style>
+            table,th,td{
+                border: 20px solid white;
+                border-collapse: collapse;
+                border-spacing: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Transaction History</h1>
+    <table>
+        
+        <thead>
+            <tr>
+                <th>Start Location </th>
+                <th>End Location</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Tax Amount</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction['Starting Location'] }}</td>
+                <td>{{ transaction['Ending Location'] }}</td>
+                <td>{{ transaction['Date'] }}</td>
+                <td>{{ transaction['Time'] }}</td>
+                <td>{{ transaction['Tax Amount'] }}</td>
+                <td>{{ transaction['Balance'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Back to Home</a>
+    </body>
+</html>

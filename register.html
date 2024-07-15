@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form action="/register" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="car_registration">Car Registration Number:</label>
+            <input type="text" id="car_registration" name="reg_number" required><br><br>
+            <label for="Username">Username</label>
+            <input type="text" id="Username" name="Username" required><br><br>
+            <label for="vehicle_type">Vehicle Type:</label>
+            <select id="vehicle_type" name="vehicle_type" required>
+                <option value="Car">Car</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Van">Van</option>
+                <option value="Light Motor Vehicle">Light Motor Vehicle</option>
+                <option value="Truck">Truck</option>
+                <option value="Bus">Bus</option>
+                <option value="Light Commercial Vehicle">Light Commercial Vehicle</option>
+                <option value="Light Goods Vehicle">Light Goods Vehicle</option>
+                <option value="Mini Bus">Mini Bus</option>
+                <option value="Others">Others</option>
+            </select><br><br>
+            <label for="Balance">Balance</label>
+            <input type="number"id="Balance" name="Balance" required><br><br>            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
