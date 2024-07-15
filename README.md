@@ -14,10 +14,26 @@ This project simulates a GPS-based toll collection system for vehicles. The syst
 
 ## Technologies Used 
 
-- HTML
-- CSS
-- JAVASCRIPT
-- LEAFLET
-- PYTHON
+- `HTML`
+- `CSS`
+- `JAVASCRIPT`
+- `LEAFLET`
+- `PYTHON`
+
+## Implementation
+
+
+## Results and Findings
+
+
+## Team Terabyte Titans
+
+- Sreya Anna Joseph <https://gitgub.com/sreya>
+-
+-
+-
+
+
+
  
 
