@@ -12,6 +12,12 @@ This project simulates a GPS-based toll collection system for vehicles. The syst
 - **User Management**: Associates vehicle details with user IDs and extract relevant information when a journey starts.
 - **Toll Payment Status**: Manages and updates the payment status for each journey.
 
+## Technologies Used 
 
+- HTML
+- CSS
+- JAVASCRIPT
+- LEAFLET
+- PYTHON
  
 
